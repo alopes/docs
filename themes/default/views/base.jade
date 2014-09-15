@@ -109,7 +109,6 @@ html(lang="en")
 
             ul.nav.navbar-nav.navbar-right
 
-
               li.li-docs
                 a(href="/") Documentation
 
@@ -117,23 +116,13 @@ html(lang="en")
                 span(role='button', data-toggle='dropdown', data-target='#').btn-dro More
                   i.icon-budicon-460
                 ul.dropdown-menu(role='menu', aria-labelledby='dLabel').animated
-
-
-
                   li
                     a(href="https://auth0.com/opensource") Open Source
-
                   li.divider
-
                   li
-
                     a(href="https://auth0.com/about") About
-
-
-
                   li
                     a(href="https://auth0.com/customers") Customers
-
                   li
                     a(href="https://auth0.com/blog") Blog
 
@@ -148,35 +137,43 @@ html(lang="en")
                     a.signin-button(href="javascript:signup()").btn.btn-sm.signup Sign Up
 
     .container
-      .sub-header.sub-header-dropdown
+      nav.navbar.navbar-default.sub-navbar
+        .container-fluid
+          if (locals.user && user.tenants && user.tenants.length > 1)
+            .dropdown
+              button#account-chooser.btn.dropdown-toggle(type='button', data-toggle='dropdown')
+                | #{user.tenant}
+                span.caret
+              ul.dropdown-menu(role='menu', aria-labelledby='account-chooser')
+                each tenant in user.tenants
+                  if (user.tenant !== tenant)
+                    li(role='presentation')
+                      a(role='menuitem', tabindex='-1', href='/switch?tenant=#{tenant}') #{tenant}
+          else
+            .navbar-header
+              small.navbar-text Documentation: API Reference & Help topics
 
-        if (locals.user && user.tenants && user.tenants.length > 1)
-          .dropdown
-            button#account-chooser.btn.dropdown-toggle(type='button', data-toggle='dropdown')
-              | #{user.tenant}
-              span.caret
-            ul.dropdown-menu(role='menu', aria-labelledby='account-chooser')
-              each tenant in user.tenants
-                if (user.tenant !== tenant)
-                  li(role='presentation')
-                    a(role='menuitem', tabindex='-1', href='/switch?tenant=#{tenant}') #{tenant}
-        else
-          span.sub-header-text Documentation: API Reference & Help topics
 
+          form.navbar-form.navbar-right(role="search", action="/search", autocomplete="off")
+            .form-group
+              .input-group
+                input#search-input.form-control(type="text", placeholder="Search for terms", name="q")
+                span.input-group-btn
+                  button.btn.btn-default.btn-small(type="submit", value="")
+                    i.icon.icon-budicon-489
 
+          ul.external-links
+            //- li
+            //-   a(href="http://twitter.com/authzero", target="_blank") Twitter
 
-        ul.external-links
-          li
-            a(href="http://twitter.com/authzero", target="_blank") Twitter
+            //- li
+            //-   a(href="http://github.com/auth0", target="_blank") Github
 
-          li
-            a(href="http://github.com/auth0", target="_blank") Github
+            //- li
+            //-   a(href="http://chat.auth0.com", target="_blank") Chat With Us
 
-          li
-            a(href="http://chat.auth0.com", target="_blank") Chat With Us
-
-          li
-            a(href="mailto:support@auth0.com", target="_blank") Contact Us
+            //- li
+            //-   a(href="mailto:support@auth0.com", target="_blank") Contact Us
 
     .container
       .row

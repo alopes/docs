@@ -23,6 +23,38 @@ div.package span.smaller {
 .sub-header .dropdown-menu {
   min-width: 226px;
 }
+.sub-navbar {
+  background: #5d676f;
+}
+.sub-navbar .navbar-text {
+  color: #fff;
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+}
+.sub-navbar .navbar-form input:focus,
+.sub-navbar .navbar-form button:focus,
+.sub-navbar .navbar-form input:active,
+.sub-navbar .navbar-form button:active {
+  outline: 0;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.sub-navbar .navbar-form .btn {
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.sub-navbar .navbar-form .btn i {
+  font-size: 14px;
+  line-height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+}
 .page-docs #tutorial-navigator .step.select-app-type {
   padding: 20px 4px;
 }

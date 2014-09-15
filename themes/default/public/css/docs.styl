@@ -41,16 +41,41 @@ div.package span.smaller {
 &.wpf-winforms-tutorial i
   border-color: #ffc0cb;
 
-
 .sub-header
-  .btn 
+  .btn
     min-width: 226px;
   .dropdown-menu
     min-width: 226px;
 
-.page-docs
-  
+.sub-navbar
+  background: #5d676f;
+  .navbar-text
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+  .navbar-form
+    input, button
+      &:focus, &:active
+        outline: 0;
+        border: 1px solid #ccc;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 
+    .btn
+      font-size: 14px;
+      padding-left: 10px;
+      padding-right: 10px;
+      i
+        font-size: 14px;
+        line-height: 14px;
+        display: inline-block;
+        vertical-align: middle;
+
+.page-docs
 
   #tutorial-navigator .step.select-app-type
     padding: 20px 4px;
