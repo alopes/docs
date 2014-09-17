@@ -154,10 +154,10 @@ html(lang="en")
               small.navbar-text Documentation: API Reference & Help topics
 
 
-          form.navbar-form.navbar-right(role="search", action="/search", autocomplete="off")
+          form#search.navbar-form.navbar-right(role="search", action="/search", autocomplete="off")
             .form-group
               .input-group
-                input#search-input.form-control(type="text", placeholder="Search for terms", name="q")
+                input#search-input.form-control(type="text", placeholder="Search for terms", name="stq")
                 span.input-group-btn
                   button.btn.btn-default.btn-small(type="submit", value="")
                     i.icon.icon-budicon-489
@@ -263,6 +263,12 @@ html(lang="en")
             a(href="/") Auth0 &copy;
 
 
+
+  //- Start search feature scripts
+  script(type="text/javascript", src="/js/jquery.ba-hashchange.min.js")
+  script(type="text/javascript", src="/js/jquery.swiftype.search.js")
+  script(src='/js/search.js')
+  //- End search feature scripts
 
   script(src='/js/prettify.js')
   script(type='text/javascript')
