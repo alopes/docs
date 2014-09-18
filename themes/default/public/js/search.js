@@ -22,11 +22,11 @@
 
   $('#search-input')
   .val(hashParams().stq || '')
-  .on('input', function() {
-    if (searchpage.test(window.location.pathname)) {
-      $(this).submit();
-    }
-  });
+  // .on('input', function() {
+  //   if (searchpage.test(window.location.pathname)) {
+  //     $(this).submit();
+  //   }
+  // });
 
   $(window).hashchange(function() {
     $('#search-input').val(hashParams().stq);
