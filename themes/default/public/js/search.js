@@ -1,37 +1,24 @@
-
-
-
 (function() {
-  var searchpage = /^\/search/;
 
-  $('form#search').on('submit', function(ev) {
-    ev.preventDefault();
-    var stq = $(this).find('[name=stq]').val();
+  // Install Swiftype widget
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
 
-    if (searchpage.test(window.location.pathname)) {
-      return setSearchHash(stq, hashParams().stp);
-    };
+  // Run Swiftype widget
+  _st('install','XZueLo9ygDyMKse1qg6Z');
 
-    redirect('/search#' + createHash(stq, hashParams().stp));
-  });
+  // Update input with current query value
+  $('#search-input').val(hashParams().stq || '')
 
-  $('#search-input').swiftypeSearch({
-    resultContainingElement: '#search-results',
-    engineKey: 'gsLKKoQYUiLHFk6x8EXU'
-  });
-
-  $('#search-input')
-  .val(hashParams().stq || '')
-  // .on('input', function() {
-  //   if (searchpage.test(window.location.pathname)) {
-  //     $(this).submit();
-  //   }
-  // });
-
+  // update input at any hashchange
+  // XXX: Used mostly when pushstate change of hash search
   $(window).hashchange(function() {
     $('#search-input').val(hashParams().stq);
   });
 
+  // Private helper functions
   function queryParser (a) {
     var i, p, b = {};
     if (a === "") {
@@ -46,24 +33,9 @@
     return b;
   };
 
-  function queryParams () {
-    return queryParser(window.location.search.substr(1).split('&'));
-  };
-
   function hashParams () {
     return queryParser(window.location.hash.substr(1).split('&'));
   };
-
-  function createHash (query, page) {
-    return "stq=" + encodeURIComponent(query) + "&stp=" + (page || 1);
-  }
-  function setSearchHash (query, page) {
-    window.location.hash = createHash(query, page);
-  }
-
-  function redirect (path) {
-    window.location.href = window.location.origin + path;
-  }
 
 })()
 
