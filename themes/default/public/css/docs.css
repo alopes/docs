@@ -462,3 +462,24 @@ div.package span.smaller {
 .page-docs .fixit a {
   font-weight: bold;
 }
+.page-docs #search-results .st-search-summary {
+  margin-bottom: 20px;
+}
+.page-docs #search-results .st-results h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.page-docs #search-results .st-results .st-result {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+.page-docs #search-results .st-results .st-result .st-snippet em {
+  font-weight: bold;
+  background-color: rgba(255,242,51,0.298);
+}
+.page-docs #search-results .st-results .st-result.final {
+  margin-bottom: 10px;
+}
+.page-docs #search-results .st-pagination {
+  text-align: center;
+}
