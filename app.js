@@ -37,6 +37,7 @@ nconf
     'SENSITIVE_DATA_ENCRYPTION_KEY': '0123456789',
     'HMAC_ENCRYPTION_KEY': 'abcdefghij',
     'PUBLIC_ALLOWED_TUTORIALS': '/adldap-auth?,/adldap-x?,/adfs?',
+    'AUTH0_TENANT': 'auth0-dev',
     'AUTH0_CLIENT_ID':   'aCbTAJNi5HbsjPJtRpSP6BIoLPOrSj2C',
     'PRERENDER_ENABLED': false
   });
